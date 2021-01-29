@@ -13,11 +13,15 @@ module.exports = {
                 loader: 'babel-loader',
                 test: /\.js$/,
                 exclude: /node_modules/
-            }
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+              },
         ]
     },
-    devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        port: 5000
-    }
+    // devServer: {
+    //     contentBase: path.join(__dirname, 'public'),
+    //     port: 5000
+    // }
 }
