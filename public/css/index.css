@@ -1,3 +1,7 @@
+:root{
+
+}
+
 html, body, #root {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 100%;
@@ -11,6 +15,11 @@ html, body, #root {
     align-items: center;
 }
 
+.mid-container{
+    height: 100%;
+    background-color: aliceblue;
+}
+
 .internal-container{
     height: 100%;
     display: flex;
@@ -18,10 +27,61 @@ html, body, #root {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
+    background-color: aliceblue;
 }
 
 .internal-container > input, button {
     margin: 20px;
     width: 200px;
 }
+
+/* Reference: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
+*
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .mid-container{
+        width: 400px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .mid-container{
+        width: 400px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .mid-container{
+        width: 500px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .mid-container{
+        width: 800px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .mid-container{
+        width: 1000px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+/*
+*
+*/
+
