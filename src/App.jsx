@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 // https://reactrouter.com/web/guides/quick-start
 import {
@@ -13,22 +13,42 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 
+const links = {
+    "volume": "/volume",
+    "weight": "/weight",
+    "temperature": "/temperature"
+};
+
 const App = () => {
+    const [active, setActive] = useState(window.location.toString());
     return(
         <div className="main-container">
             <div className="mid-container">
                 <Router>
                     <Nav variant="tabs" defaultActiveKey="/home">
-                        <Nav.Item>
-                            <Link to="/volume">Volume</Link>
+                        {Object.keys(links).map((item, index) => (
+                            <Nav.Item key={index}>
+                                <div key={index + 1} className={active.includes(item) ? "active-category-tab": "category-tab"}>
+                                    <Link key={index + 2} to={links[item]} onClick={() => setActive(item)}> {item} </Link>
+                                </div>
+                            </Nav.Item>
+                        ))}
+                        {/* <Nav.Item >
+                            <div className={active.includes("volume") ? "active-category-tab": "category-tab"}>
+                                <Link to="/volume" onClick={() => setActive("volume")}> Volume </Link>
+                            </div>
                         </Nav.Item>
                         <Nav.Item>
-                            <Link to="/weight">Weight</Link>
+                            <div className={active.includes("weight") ? "active-category-tab": "category-tab"}>
+                                <Link to="/weight" onClick={() => setActive("weight")}> Weight </Link>
+                            </div>
                         </Nav.Item>
-                        <Nav.Item>
-                            <Link to="/temperature">Temperature</Link>
-                        </Nav.Item>
-                    </Nav>
+                        <Nav.Item >
+                            <div className={active.includes("temperature") ? "active-category-tab": "category-tab"}>
+                                <Link to="/temperature" onClick={() => setActive("temperature")}> Temperature </Link>
+                            </div>
+                        </Nav.Item> */}
+                    </Nav> 
                     <Switch>
                         <Route exact path="/">
                             <Redirect to="/volume" />
