@@ -72,17 +72,33 @@ html, body, #root {
     width: 200px;
 }
 
+
+/* Category Navigation */
 .category-tab {
     padding: 12px;
     width: 100%;
 }
 
-.active-category-tab {
-    background-color: aqua;
-}
 .nav {
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
+.active-category-tab { 
+    padding: 12px;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+}
+
+.active-category-tab > .nav-link{ 
+    color: black;
+}
+
+.nav-link{
+    color: lightgrey;
+}
+
+.nav-link:hover{
+    color: black;
+}
 
 
