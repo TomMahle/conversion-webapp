@@ -1,51 +1,96 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 
-import { formulas } from './formulas.js';
+import { formulas } from "./formulas.js";
 
+const ConversionForm = ({ category }) => {
+  const [{ inputVal, outputVal }, setVal] = useState({
+    inputVal: 0,
+    outputVal: 0,
+  });
+  const [{ input, output }, setSelectState] = useState({
+    input: Object.keys(formulas[category])[0],
+    output: Object.keys(formulas[category])[1],
+  });
 
-const ConversionForm = ({category}) => {
-    const [inputVal, setInputVal] = useState(0);
-    const [outputVal, setOutputVal] = useState(0);
-    const [{input, output}, setSelectState] = useState({"input": Object.keys(formulas[category])[0], "output": Object.keys(formulas[category])[1]})
+  const getConversion = (io, fromVal, fromUnit, toUnit) => {
+    if (category !== "temperature")
+      setVal((currentState) => ({
+        ...currentState,
+        [io + "Val"]: fromVal * formulas[category][fromUnit][toUnit],
+      }));
+    else
+      setVal((currentState) => ({
+        ...currentState,
+        [io + "Val"]: formulas[category][fromUnit][toUnit](fromVal),
+      }));
+  };
 
-    useEffect(() => {
-        if (category !== "temperature")
-            setOutputVal(inputVal * formulas[category][input][output]);
-        else 
-            setOutputVal(formulas[category][input][output](inputVal));
-        // may need return for "componentWillUnmount"
-    }, [inputVal, outputVal, input, output]);
+  useEffect(() => {
+    getConversion("output", inputVal, input, output);
+  }, [input]);
 
-    const swapValues = () => {
-        var temp = outputVal;
-        setOutputVal(inputVal);
-        setInputVal(temp);
-    };
+  useEffect(() => {
+    getConversion("input", outputVal, output, input);
+  }, [output]);
 
+  const options = (io) => (
+    <Form.Control
+      as="select"
+      value={io === "input" ? input : output}
+      onChange={(e) =>
+        setSelectState((currentState) => ({
+          ...currentState,
+          [io]: e.target.value,
+        }))
+      }
+    >
+      {Object.keys(formulas[category]).map((option, index) => {
+        return (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        );
+      })}
+    </Form.Control>
+  );
 
-    const options = (io) =>  (
-        <Form.Control as="select" value={io === "input" ? input : output} onChange={(e) => setSelectState(currentState => ({...currentState, [io]: e.target.value}))}>
-            {Object.keys(formulas[category]).map((option, index) => {
-                return <option key={index} value={option} >{option}</option>;
-            })}
-        </Form.Control>
-    );
-
-    return (
-    <div className="internal-container"> 
-        <div>
-            <Form.Control type="number" min='0' value={inputVal} onChange={(e) => setInputVal(e.target.value)} />
-            {options("input")}
-        </div>
-        <Button onClick={() => swapValues()}>&larr;&rarr;</Button>
-        <div>
-            <Form.Control type="number" min='0' value={outputVal} onChange={(e) => setOutputVal(e.target.value)} />
-            {options("output")}
-        </div>
+  return (
+    <div className="internal-container">
+      <div>
+        <Form.Control
+          type="number"
+          min="0"
+          value={inputVal}
+          onChange={(e) => {
+            setVal((currentState) => ({
+              ...currentState,
+              inputVal: e.target.value,
+            }));
+            getConversion("output", e.target.value, input, output);
+          }}
+        />
+        {options("input")}
+      </div>
+      =
+      <div>
+        <Form.Control
+          type="number"
+          min="0"
+          value={outputVal}
+          onChange={(e) => {
+            setVal((currentState) => ({
+              ...currentState,
+              outputVal: e.target.value,
+            }));
+            getConversion("input", e.target.value, output, input);
+          }}
+        />
+        {options("output")}
+      </div>
     </div>
-    )};
+  );
+};
 
 export default ConversionForm;

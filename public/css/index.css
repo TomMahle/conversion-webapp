@@ -1,108 +1,109 @@
-:root{
-
+:root {
 }
 
-html, body, #root {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    height: 100%;
-  }
+html,
+body,
+#root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100%;
+}
 
 .main-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.mid-container{
-    height: 100%;
-    background-color: aliceblue;
-    margin-top: 80px;
-    margin-bottom: 100px;
-    border-radius: 5px;
+.mid-container {
+  height: 100%;
+  background-color: aliceblue;
+  margin-top: 80px;
+  margin-bottom: 100px;
+  border-radius: 5px;
 }
 /* Reference: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
 *
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .mid-container{
-        width: 300px;
-    }
+  .mid-container {
+    width: 300px;
+  }
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    .mid-container{
-        width: 400px;
-    }
+  .mid-container {
+    width: 400px;
+  }
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .mid-container{
-        width: 500px;
-    }
+  .mid-container {
+    width: 500px;
+  }
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .mid-container{
-        width: 800px;
-    }
+  .mid-container {
+    width: 800px;
+  }
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    .mid-container{
-        width: 1000px;
-    }
+  .mid-container {
+    width: 1000px;
+  }
 }
 /*
 *
 */
 
-.internal-container{
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+.internal-container {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.internal-container > input, button {
-    margin: 20px;
-    width: 200px;
+.internal-container > input,
+button {
+  margin: 20px;
+  width: 200px;
 }
-
 
 /* Category Navigation */
 .category-tab {
-    padding: 12px;
-    width: 100%;
+  padding: 12px;
+  width: 100%;
 }
 
 .nav {
-    justify-content: space-around;
+  justify-content: space-around;
 }
 
-.active-category-tab { 
-    padding: 12px;
-    width: 100%;
-    border-bottom: 1px solid lightgrey;
+.active-category-tab {
+  padding: 12px;
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
 }
 
-.active-category-tab > .nav-link{ 
-    color: black;
+.active-category-tab > .nav-link {
+  color: black;
 }
 
-.nav-link{
-    color: lightgrey;
+.nav-link {
+  color: lightgrey;
 }
 
-.nav-link:hover{
-    color: black;
+.nav-link:hover {
+  color: black;
 }
 
 /*Form*/
 
-select{
-    margin-top: 5px;
+select {
+  margin-top: 5px;
 }
