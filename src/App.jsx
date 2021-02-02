@@ -6,16 +6,15 @@ import {
     Route,
     Redirect
   } from "react-router-dom"; 
-
-import Form from "./Form.jsx";
-
 import Nav from "react-bootstrap/Nav";
+
+import ConversionForm from "./ConversionForm.jsx";
 
 const links = ["volume", "weight", "temperature"];
 
 const App = () => {
     const path = window.location.pathname.toString();
-    const [active, setActive] = useState(path == "/" ? "volume" : path);
+    const [active, setActive] = useState(path == "/" ? "volume" : path.substring(1));
     return(
         <Router>
             <div className="main-container">
@@ -32,32 +31,18 @@ const App = () => {
                 ))}
                 </Nav>
                 <div className="mid-container">
-                        <Switch>
-                            <Route exact path="/">
-                                <Redirect to="/volume" />
-                            </Route>
-                            <Route path="/volume">
-                                <div className="internal-container"> 
-                                    <Form.Control type="number" min='0' />
-                                    <Button>&larr;&rarr;</Button>
-                                    <Form.Control type="number" min='0' />
-                                </div>
-                            </Route>
-                            <Route path="/weight">
-                                <div className="internal-container"> 
-                                    <Form.Control type="number" min='0' />
-                                    <Button>&larr;&rarr;</Button>
-                                    <Form.Control type="number" min='0' />
-                                </div>
-                            </Route>
-                            <Route path="/temperature">
-                                <div className="internal-container"> 
-                                    <Form.Control type="number" min='0' />
-                                    <Button>&larr;&rarr;</Button>
-                                    <Form.Control type="number" min='0' />
-                                </div>
-                            </Route>
-                        </Switch>
+                    <Switch>
+                        <Route exact path="/">
+                            <Redirect to="/volume" />
+                        </Route>
+                        <Route path="/volume">
+                        </Route>
+                        <Route path="/weight">
+                        </Route>
+                        <Route path="/temperature">
+                        </Route>
+                    </Switch>
+                    <ConversionForm category={active} />
                 </div>
             </div>
         </Router>
