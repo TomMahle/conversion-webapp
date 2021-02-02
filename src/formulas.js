@@ -115,10 +115,10 @@ export const formulas = {
     },
     'temperature': {
         'fahrenheit': {
-            'fC': (f) => ((f - 32) * 5) / 9
+            'celsius': (f) => ((f - 32) * 5) / 9
         },
         'celsius': {
-            'cF': (c) => ((c / 5) * 9) + 32
+            'fahrenheit': (c) => ((c / 5) * 9) + 32
         }
     }
 };
