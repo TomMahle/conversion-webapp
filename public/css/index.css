@@ -101,4 +101,8 @@ html, body, #root {
     color: black;
 }
 
+/*Form*/
 
+select{
+    margin-top: 5px;
+}
