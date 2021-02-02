@@ -34,14 +34,14 @@ export const formulas = {
       floz: (x) => x,
     },
     cup: {
-      tsp: (x) => x * 48,
-      tbsp: (x) => x * 16,
-      floz: (x) => x * 8,
-      pint: (x) => x * 0.5,
-      quart: (x) => x * 0.25,
-      gallon: (x) => x * 0.0625,
+      tsp: (x) => x * 48.6922,
+      tbsp: (x) => x * 16.2307,
+      floz: (x) => x * 8.11537,
+      pint: (x) => x * 0.50721,
+      quart: (x) => x * 0.253605,
+      gallon: (x) => x * 0.0634013,
       l: (x) => x * 0.236588,
-      ml: (x) => x * 236.588,
+      ml: (x) => x * 240,
       cup: (x) => x,
     },
     pint: {
@@ -100,7 +100,7 @@ export const formulas = {
       ml: (x) => x,
     },
   },
-  weight: {
+  mass: {
     g: {
       mg: (x) => x * 100,
       oz: (x) => x * 0.035274,
