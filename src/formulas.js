@@ -9,6 +9,7 @@ export const formulas = {
             'gallon': 0.00130208,
             'l': 0.00492892,
             'ml': 4.92892,
+            'tsp': 1,
         },
         'tbsp': {
             'tsp': 3,
@@ -19,6 +20,7 @@ export const formulas = {
             'gallon': 0.00390625,
             'l': 0.0147868,
             'ml': 14.7868,
+            'tbsp': 1,
         },
         'floz': {
             'tsp': 6,
@@ -29,6 +31,7 @@ export const formulas = {
             'gallon': 0.0078125,
             'l': 0.0295735,
             'ml': 29.5735,
+            'floz': 1,
         },
         'cup': {
             'tsp': 48,
@@ -39,6 +42,7 @@ export const formulas = {
             'gallon': 0.0625,
             'l': 0.236588,
             'ml': 236.588,
+            'cup': 1,
         },
         'pint': {
             'tsp': 96,
@@ -49,6 +53,7 @@ export const formulas = {
             'gallon': 0.125,
             'l': 0.473176,
             'ml': 473.176,
+            'pint': 1,
         },
         'quart': {
             'tsp': 192,
@@ -59,6 +64,7 @@ export const formulas = {
             'gallon': 0.25,
             'l': 0.946353,
             'ml': 946.353,
+            'quart': 1,
         },
         'gallon': {
             'tsp': 768,
@@ -69,6 +75,7 @@ export const formulas = {
             'quart': 4,
             'l': 3.78541,
             'ml': 3785.41,
+            'gallon': 1,
         },
         'l': {
             'tsp': 202.884,
@@ -79,6 +86,7 @@ export const formulas = {
             'quart': 1.05669,
             'gallon': 0.264172,
             'ml': 1000,
+            'l': 1,
         },
         'ml': {
             'tsp': 0.202884,
@@ -89,36 +97,43 @@ export const formulas = {
             'quart': 0.00105669,
             'gallon': 0.000264172,
             'l': 0.001,
+            'ml': 1,
         },
     },
     "weight": {
         'g': {
             'mg': 100,
             'oz': 0.035274,
-            'lb': 0.00220462
+            'lb': 0.00220462,
+            'g': 1,
         },
         'mg': {
             'g': 0.001,
             'oz': 0.000035274,
-            'lb': 0.0000022046
+            'lb': 0.0000022046,
+            'mg': 1,
         },
         'oz': {
             'g': 28.3495,
             'mg': 28349.5,
-            'lb': 0.0625
+            'lb': 0.0625,
+            'oz': 1,
         },
         'lb': {
             'g': 453.592,
             'mg': 453592,
             'oz': 16,
+            'lb': 1,
         }
     },
     'temperature': {
         'fahrenheit': {
-            'celsius': (f) => ((f - 32) * 5) / 9
+            'celsius': (f) => ((f - 32) * 5) / 9,
+            'fahrenheit': (f) => f
         },
         'celsius': {
-            'fahrenheit': (c) => ((c / 5) * 9) + 32
+            'fahrenheit': (c) => ((c / 5) * 9) + 32,
+            'celsius': (c) => c
         }
     }
 };
