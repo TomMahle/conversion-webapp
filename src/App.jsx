@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
@@ -8,15 +8,12 @@ import {
 } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 
+import Error from "./Error.jsx";
 import ConversionForm from "./ConversionForm.jsx";
 
-const links = ["volume", "weight", "temperature"];
+const links = ["volume", "mass", "temperature"];
 
 const App = () => {
-  const path = window.location.pathname.toString();
-  const [active, setActive] = useState(
-    path == "/" ? "volume" : path.substring(1)
-  );
   return (
     <Router>
       <div className="main-container">
@@ -26,11 +23,10 @@ const App = () => {
               <div
                 key={index + 1}
                 className={
-                  active.includes(category)
+                  window.location.pathname.toString().includes(category)
                     ? "active-category-tab"
                     : "category-tab"
                 }
-                onClick={() => setActive(category)}
               >
                 <Nav.Link key={category} href={category}>
                   {category}
@@ -44,11 +40,20 @@ const App = () => {
             <Route exact path="/">
               <Redirect to="/volume" />
             </Route>
-            <Route path="/volume"></Route>
-            <Route path="/weight"></Route>
-            <Route path="/temperature"></Route>
+            <Route path="/volume">
+              <ConversionForm category={"volume"} />
+            </Route>
+            <Route path="/mass">
+              <ConversionForm category={"mass"} />
+            </Route>
+            <Route path="/temperature">
+              <ConversionForm category={"temperature"} />
+            </Route>
+            {/* https://ui.dev/react-router-v5-handling-404-pages/ */}
+            <Route path="*">
+              <Error msg={"Page not found."} />
+            </Route>
           </Switch>
-          <ConversionForm category={active} />
         </div>
       </div>
     </Router>
