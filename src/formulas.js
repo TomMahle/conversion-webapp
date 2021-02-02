@@ -3,7 +3,7 @@ export const formulas = {
     tsp: {
       tbsp: (x) => x * 0.333333,
       floz: (x) => x * 0.166667,
-      cup: (x) => x * 0.0205372,
+      cup: (x) => x * 0.0208333,
       pint: (x) => x * 0.0104167,
       quart: (x) => x * 0.00520833,
       gallon: (x) => x * 0.00130208,

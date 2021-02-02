@@ -26,7 +26,7 @@ const ConversionForm = ({ category }) => {
   }, [input]);
 
   useEffect(() => {
-    getConversion("input", outputVal, output, input);
+    getConversion("output", inputVal, input, output);
   }, [output]);
 
   const options = (io) => (
