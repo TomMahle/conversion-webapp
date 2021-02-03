@@ -10,6 +10,7 @@ body,
 
 .main-container {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,52 +19,17 @@ body,
 
 .mid-container {
   height: 100%;
+  width: 100%;
   background-color: aliceblue;
   margin-top: 80px;
   margin-bottom: 100px;
   border-radius: 5px;
 }
-/* Reference: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
-*
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  .mid-container {
-    width: 300px;
-  }
-}
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  .mid-container {
-    width: 400px;
-  }
-}
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .mid-container {
-    width: 500px;
-  }
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  .mid-container {
-    width: 800px;
-  }
-}
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  .mid-container {
-    width: 1000px;
-  }
-}
-/*
-*
-*/
 
 .internal-container {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -75,35 +41,131 @@ button {
 }
 
 /* Category Navigation */
-.category-tab {
-  padding: 12px;
-  width: 100%;
-}
 
 .nav {
   justify-content: space-around;
 }
 
-.active-category-tab {
-  padding: 12px;
+.category-tab {
   width: 100%;
-  border-bottom: 1px solid lightgrey;
 }
 
-.active-category-tab > .nav-link {
-  color: black;
+.active-category-tab {
+  width: 100%;
+  border-bottom: 1px solid lightgrey;
 }
 
 .nav-link {
   color: lightgrey;
 }
 
+.active-category-tab > .nav-link {
+  color: black;
+}
+
 .nav-link:hover {
   color: black;
 }
 
-/*Form*/
+/* Form */
 
 select {
   margin-top: 5px;
 }
+
+/* Responsive Media Queries
+* Reference: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
+*
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .mid-container {
+    width: 300px;
+  }
+
+  .category-tab {
+    padding: 3px;
+  }
+
+  .active-category-tab {
+    padding: 3px;
+  }
+
+  .internal-container {
+    flex-direction: column;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .mid-container {
+    width: 400px;
+  }
+
+  .category-tab {
+    padding: 12px;
+  }
+
+  .active-category-tab {
+    padding: 12px;
+  }
+
+  .internal-container {
+    flex-direction: column;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .mid-container {
+    width: 500px;
+  }
+
+  .category-tab {
+    padding: 12px;
+  }
+
+  .active-category-tab {
+    padding: 12px;
+  }
+
+  .internal-container {
+    flex-direction: column;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .mid-container {
+    width: 800px;
+  }
+
+  .category-tab {
+    padding: 12px;
+  }
+
+  .active-category-tab {
+    padding: 12px;
+  }
+
+  .internal-container {
+    flex-direction: row;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .mid-container {
+    width: 1000px;
+  }
+
+  .category-tab {
+    padding: 12px;
+  }
+
+  .active-category-tab {
+    padding: 12px;
+  }
+
+  .internal-container {
+    flex-direction: row;
+  }
+}
+/*
+*
+ */

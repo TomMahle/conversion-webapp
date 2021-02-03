@@ -67,7 +67,7 @@ const ConversionForm = ({ category }) => {
         />
         {options("input")}
       </div>
-      =
+      <div className="equal-sign">=</div>
       <div>
         <Form.Control
           type="number"
