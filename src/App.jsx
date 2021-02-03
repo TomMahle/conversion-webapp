@@ -11,8 +11,12 @@ import Nav from "react-bootstrap/Nav";
 import Error from "./Error.jsx";
 import ConversionForm from "./ConversionForm.jsx";
 
+// routes based on conversion categories
 const links = ["volume", "mass", "temperature"];
 
+/**
+ * Base app component.
+ */
 const App = () => {
   return (
     <Router>
@@ -49,7 +53,7 @@ const App = () => {
             <Route path="/temperature">
               <ConversionForm category={"temperature"} />
             </Route>
-            {/* https://ui.dev/react-router-v5-handling-404-pages/ */}
+            {/* Handling 404 with react-router: https://ui.dev/react-router-v5-handling-404-pages/ */}
             <Route path="*">
               <Error msg={"Page not found."} />
             </Route>
