@@ -1,4 +1,3 @@
-// https://levelup.gitconnected.com/how-to-setup-environment-using-react-webpack-express-babel-d5f1b572b678
 const path = require("path");
 const express = require("express");
 const app = express();
