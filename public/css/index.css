@@ -1,4 +1,7 @@
 :root {
+  --onyx: #393d3fff;
+  --platinum: #eadedaff;
+  --sonic-silver: #757780;
 }
 
 html,
@@ -6,6 +9,8 @@ body,
 #root {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 100%;
+  color: var(--onyx);
+  background-color: var(--platinum);
 }
 
 .main-container {
@@ -20,10 +25,10 @@ body,
 .mid-container {
   height: 100%;
   width: 100%;
-  background-color: aliceblue;
   margin-top: 80px;
   margin-bottom: 100px;
   border-radius: 5px;
+  border: 1px solid var(--onyx);
 }
 
 .internal-container {
@@ -40,6 +45,14 @@ button {
   width: 200px;
 }
 
+.main-title-container {
+  width: 100%;
+  border-bottom: 1px solid var(--sonic-silver);
+}
+.main-title {
+  margin-left: 25px;
+}
+
 /* Category Navigation */
 
 .nav {
@@ -52,19 +65,16 @@ button {
 
 .active-category-tab {
   width: 100%;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid var(--sonic-silver);
 }
 
 .nav-link {
-  color: lightgrey;
+  color: var(--sonic-silver);
 }
 
-.active-category-tab > .nav-link {
-  color: black;
-}
-
+.active-category-tab > .nav-link,
 .nav-link:hover {
-  color: black;
+  color: var(--onyx);
 }
 
 /* Form */
@@ -73,10 +83,21 @@ select {
   margin-top: 5px;
 }
 
+.equal-sign {
+  font-size: 45px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.input-dropdown-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 /* Responsive Media Queries
-* Reference: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
+* https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
 *
-/* Extra small devices (phones, 600px and down) */
+/* <= 600px */
 @media only screen and (max-width: 600px) {
   .mid-container {
     width: 300px;
@@ -94,7 +115,7 @@ select {
     flex-direction: column;
   }
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* >= 600px */
 @media only screen and (min-width: 600px) {
   .mid-container {
     width: 400px;
@@ -112,7 +133,7 @@ select {
     flex-direction: column;
   }
 }
-/* Medium devices (landscape tablets, 768px and up) */
+/* >= 768px */
 @media only screen and (min-width: 768px) {
   .mid-container {
     width: 500px;
@@ -130,7 +151,7 @@ select {
     flex-direction: column;
   }
 }
-/* Large devices (laptops/desktops, 992px and up) */
+/* >= 992px */
 @media only screen and (min-width: 992px) {
   .mid-container {
     width: 800px;
@@ -148,7 +169,7 @@ select {
     flex-direction: row;
   }
 }
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* >= 1200px */
 @media only screen and (min-width: 1200px) {
   .mid-container {
     width: 1000px;
@@ -168,4 +189,4 @@ select {
 }
 /*
 *
- */
+*/

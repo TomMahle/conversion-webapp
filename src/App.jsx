@@ -21,6 +21,9 @@ const App = () => {
   return (
     <Router>
       <div className="main-container">
+        <div className="main-title-container">
+          <h1 className="main-title">unit converter</h1>
+        </div>
         <Nav>
           {links.map((category, index) => (
             <Nav.Item key={index} eventkey={category}>

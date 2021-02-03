@@ -76,7 +76,7 @@ const ConversionForm = ({ category }) => {
 
   return (
     <div className="internal-container">
-      <div>
+      <div className="input-dropdown-container">
         <Form.Control
           type="number"
           min={0}
@@ -92,7 +92,7 @@ const ConversionForm = ({ category }) => {
         {options("input")}
       </div>
       <div className="equal-sign">=</div>
-      <div>
+      <div className="input-dropdown-container">
         <Form.Control
           type="number"
           min={0}
