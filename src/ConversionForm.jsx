@@ -6,6 +6,7 @@ import { formulas } from "./formulas.js";
 
 /**
  * Form that converts between units.
+ *
  * @param {String}  category            "volume" || "mass" || "temperature":
  *                                      Specifies which type of conversion units will be used.
  * @param {Boolean} showAlert           Function that sets timer for alert.
@@ -45,6 +46,7 @@ const ConversionForm = ({ category, showAlert, updateAlertMessage }) => {
   /**
    * Returns a react-bootstrap select element with options dependent
    * on the component's category parameter.
+   *
    * @param {String} io  "input" or "output": Specifies which select
    *                     element to create and whether the "input"
    *                     or "output" default value should be set.
