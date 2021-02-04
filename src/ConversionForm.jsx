@@ -23,35 +23,29 @@ const ConversionForm = ({ category }) => {
   });
 
   /**
-   * Sets the inputVal or outputVal state with
+   * Converts a given number from an initial unit to another.
    *
-   * @param {String} io       "input" or "output": Specifies which state variable
-   *                          (inputVal or outputVal) to update.
    * @param {Number} fromVal  Specifies number that will be converted.
    * @param {String} fromUnit Specifies current unit.
    * @param {String} toUnit   Specifies unit to convert to.
    */
-  const getConversion = (io, fromVal, fromUnit, toUnit) => {
-    setVal((currentState) => ({
-      ...currentState,
-      [io + "Val"]: formulas[category][fromUnit][toUnit](fromVal),
-    }));
+  const getConversion = (fromVal, fromUnit, toUnit) => {
+    return formulas[category][fromUnit][toUnit](fromVal);
   };
 
   useEffect(() => {
-    getConversion("output", inputVal, input, output);
-  }, [input]);
-
-  useEffect(() => {
-    getConversion("output", inputVal, input, output);
-  }, [output]);
+    setVal((currentState) => ({
+      ...currentState,
+      outputVal: getConversion(inputVal, input, output),
+    }));
+  }, [input, output]);
 
   /**
    * Returns a react-bootstrap select element with options dependent
    * on the component's category parameter.
-   * @param {String} io "input" or "output": Specifies whether the "input"
-   *                     or "output" default value should be used.
-   *
+   * @param {String} io  "input" or "output": Specifies which select
+   *                     element to create and whether the "input"
+   *                     or "output" default value should be set.
    */
   const options = (io) => (
     <Form.Control
@@ -79,14 +73,14 @@ const ConversionForm = ({ category }) => {
       <div className="input-dropdown-container">
         <Form.Control
           type="number"
-          min={0}
+          min="0"
           value={inputVal}
           onChange={(e) => {
             setVal((currentState) => ({
               ...currentState,
               inputVal: e.target.value,
+              outputVal: getConversion(e.target.value, input, output),
             }));
-            getConversion("output", e.target.value, input, output);
           }}
         />
         {options("input")}
@@ -95,14 +89,14 @@ const ConversionForm = ({ category }) => {
       <div className="input-dropdown-container">
         <Form.Control
           type="number"
-          min={0}
+          min="0"
           value={outputVal}
           onChange={(e) => {
             setVal((currentState) => ({
               ...currentState,
               outputVal: e.target.value,
+              inputVal: getConversion(e.target.value, output, input),
             }));
-            getConversion("input", e.target.value, output, input);
           }}
         />
         {options("output")}
