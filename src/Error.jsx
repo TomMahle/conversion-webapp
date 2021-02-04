@@ -2,6 +2,7 @@ import React from "react";
 
 /**
  * Component for displaying errors, like a 404 response.
+ *
  * @param {String} msg custom message
  */
 const Error = ({ msg }) => {
