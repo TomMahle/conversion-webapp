@@ -1,4 +1,12 @@
 :root {
+  --platinum: #eadedaff;
+  --sonic-silver: #757780;
+  --light-turquoise: #d0e3e1;
+  --turquoise: #82b4b0;
+  --dark-turquoise: #62a19c;
+  --light-blue: #dae6ea;
+  --light-purple: #e1d0e3;
+  --dark-purple: #bd96c0;
 }
 
 html,
@@ -6,6 +14,8 @@ body,
 #root {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 100%;
+  color: var(--sonic-silver);
+  background-color: var(--platinum);
 }
 
 .main-container {
@@ -18,12 +28,16 @@ body,
 }
 
 .mid-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   height: 100%;
   width: 100%;
-  background-color: aliceblue;
   margin-top: 80px;
   margin-bottom: 100px;
-  border-radius: 5px;
+  border-radius: 20px;
+  border: 1px solid var(--sonic-silver);
+  background-color: var(--light-turquoise);
 }
 
 .internal-container {
@@ -32,12 +46,30 @@ body,
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 20px;
+  border: 1px solid var(--sonic-silver);
+  border-radius: 20px;
+  background-color: var(--platinum);
 }
 
-.internal-container > input,
-button {
+.internal-container > input {
   margin: 20px;
   width: 200px;
+}
+
+.main-title-container {
+  width: 100%;
+  border-bottom: 1px solid var(--sonic-silver);
+  background-color: var(--light-turquoise);
+}
+
+.main-title {
+  margin-left: 25px;
+  color: var(--turquoise);
+}
+
+.title-first-letter {
+  color: var(--sonic-silver);
 }
 
 /* Category Navigation */
@@ -52,34 +84,74 @@ button {
 
 .active-category-tab {
   width: 100%;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid var(--turquoise);
 }
 
 .nav-link {
-  color: lightgrey;
+  color: var(--sonic-silver);
 }
 
-.active-category-tab > .nav-link {
-  color: black;
-}
-
+.active-category-tab > .nav-link,
 .nav-link:hover {
-  color: black;
+  color: var(--dark-turquoise);
 }
 
 /* Form */
+
+#form-alert {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--light-purple);
+  color: var(--sonic-silver);
+  border-color: var(--dark-purple);
+}
 
 select {
   margin-top: 5px;
 }
 
+.equal-sign {
+  font-size: 45px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.input-dropdown-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form-control {
+  border-color: var(--turquoise);
+  border-width: 1px;
+}
+
 /* Responsive Media Queries
-* Reference: https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
+* https://www.w3schools.com/howto/howto_css_media_query_breakpoints.asp 
 *
-/* Extra small devices (phones, 600px and down) */
+/* <= 600px */
 @media only screen and (max-width: 600px) {
+  .main-title-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .main-title {
+    margin-left: 0;
+  }
+
   .mid-container {
     width: 300px;
+  }
+
+  .internal-container {
+    flex-direction: column;
   }
 
   .category-tab {
@@ -89,12 +161,8 @@ select {
   .active-category-tab {
     padding: 3px;
   }
-
-  .internal-container {
-    flex-direction: column;
-  }
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* >= 600px */
 @media only screen and (min-width: 600px) {
   .mid-container {
     width: 400px;
@@ -112,7 +180,7 @@ select {
     flex-direction: column;
   }
 }
-/* Medium devices (landscape tablets, 768px and up) */
+/* >= 768px */
 @media only screen and (min-width: 768px) {
   .mid-container {
     width: 500px;
@@ -130,7 +198,7 @@ select {
     flex-direction: column;
   }
 }
-/* Large devices (laptops/desktops, 992px and up) */
+/* >= 992px */
 @media only screen and (min-width: 992px) {
   .mid-container {
     width: 800px;
@@ -148,7 +216,7 @@ select {
     flex-direction: row;
   }
 }
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* >= 1200px */
 @media only screen and (min-width: 1200px) {
   .mid-container {
     width: 1000px;
@@ -168,4 +236,4 @@ select {
 }
 /*
 *
- */
+*/
