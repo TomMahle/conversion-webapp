@@ -22,7 +22,10 @@ const App = () => {
     <Router>
       <div className="main-container">
         <div className="main-title-container">
-          <h1 className="main-title">unit converter</h1>
+          <h1 className="main-title">
+            <span className="title-first-letter">u</span>nit{" "}
+            <span className="title-first-letter">c</span>onverter
+          </h1>
         </div>
         <Nav>
           {links.map((category, index) => (
