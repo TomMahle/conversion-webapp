@@ -1,16 +1,17 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
-import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 
 import { formulas } from "./formulas.js";
 
 /**
  * Form that converts between units.
- * @param {String} category "volume" || "mass" || "temperature":
- *                          Specifies which type of conversion units will be used.
+ * @param {String}  category            "volume" || "mass" || "temperature":
+ *                                      Specifies which type of conversion units will be used.
+ * @param {Boolean} showAlert           Function that sets timer for alert.
+ * @param {String}  updateAlertMessage  Function that sets message for alert.
  */
-const ConversionForm = ({ category }) => {
+const ConversionForm = ({ category, showAlert, updateAlertMessage }) => {
   // Holds values in input fields.
   const [{ inputVal, outputVal }, setVal] = useState({
     inputVal: category === "temperature" ? -40 : 0,
@@ -22,13 +23,6 @@ const ConversionForm = ({ category }) => {
     input: Object.keys(formulas[category])[0],
     output: Object.keys(formulas[category])[1],
   });
-
-  // Holds boolean for alert.
-  const [show, setShow] = useState(false);
-
-  // useRef for timeout referenced from ZiiMakc:
-  // https://stackoverflow.com/questions/53090432/react-hooks-right-way-to-clear-timeouts-and-intervals
-  const alertTimeout = useRef(null);
 
   /**
    * Converts a given number from an initial unit to another.
@@ -46,23 +40,7 @@ const ConversionForm = ({ category }) => {
       ...currentState,
       outputVal: getConversion(inputVal, input, output),
     }));
-    return () => {
-      clearTimeout(alertTimeout.current);
-    };
   }, [input, output]);
-
-  /**
-   * Shows alert for two seconds.
-   *
-   * setTimeout functionality referenced from
-   * Andrei Duca: https://stackoverflow.com/questions/56267322/react-hooks-settimeout-after-setstate/56270973
-   */
-  const showAlert = () => {
-    setShow(true);
-    alertTimeout.current = setTimeout(() => {
-      setShow(false);
-    }, 2000);
-  };
 
   /**
    * Returns a react-bootstrap select element with options dependent
@@ -107,6 +85,7 @@ const ConversionForm = ({ category }) => {
         [fromField]: fromVal * -1,
         [toField]: getConversion(fromVal * -1, fromUnit, toUnit),
       });
+      updateAlertMessage("Positive numbers only");
       showAlert();
     } else {
       setVal({
@@ -118,9 +97,6 @@ const ConversionForm = ({ category }) => {
 
   return (
     <>
-      <Alert id="form-alert" show={show}>
-        Positive numbers only
-      </Alert>
       <div className="internal-container">
         <div className="input-dropdown-container">
           <Form.Control
