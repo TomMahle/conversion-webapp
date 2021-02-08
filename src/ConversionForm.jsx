@@ -114,7 +114,7 @@ const ConversionForm = ({ category, showAlert, updateAlertMessage }) => {
                 output
               )
             }
-            onClick={(e) => (e.target.value == 0 ? e.target.select() : null)}
+            onClick={(e) => e.target.select()}
           />
           {options("input")}
         </div>
@@ -133,7 +133,7 @@ const ConversionForm = ({ category, showAlert, updateAlertMessage }) => {
                 input
               )
             }
-            onClick={(e) => (e.target.value == 0 ? e.target.select() : null)}
+            onClick={(e) => e.target.select()}
           />
           {options("output")}
         </div>
