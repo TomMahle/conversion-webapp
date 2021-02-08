@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import ReactDOM from "react-dom";
 import {
   BrowserRouter as Router,
   Switch,
@@ -124,4 +123,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+export default App;
